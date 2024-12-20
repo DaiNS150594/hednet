@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { capitalizeString } from './utils';
 import './header.css'
-import ME from '../../assets/image/banner-hp.jpg'
+import ME from '../../assets/image/telegram.svg'
+import sampleVideo from '../../assets/image/video-hero.mp4'
 
 const Header = () => {
   const [input, setInput] = useState('');
@@ -15,12 +16,22 @@ const Header = () => {
     <header>
       <div className="container header__container">
         <h5>Hello I'm</h5>
-        <h1>Shin Shine</h1>
+        <h1>Shin Shine</h1> 
         <h5 className="text-light">Fullstack Developer</h5>
 
         <div className="me">
           <img src={ME} alt="img" />
         </div>
+
+        <video
+          width="640"
+          height="360"
+          controls
+          style={{ border: '1px solid #ddd', borderRadius: '8px' }}
+        >
+          <source src={sampleVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
         <a href="#contact" className='scroll__down'>Scroll Down</a>
       </div>
