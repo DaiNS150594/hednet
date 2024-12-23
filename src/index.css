@@ -31,3 +31,7 @@ h5 {
   list-style: none;
   text-decoration: none;
 }
+
+body {
+  overflow: hidden;
+}
