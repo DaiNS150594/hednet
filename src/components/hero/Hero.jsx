@@ -4,6 +4,7 @@ import anime from 'animejs';
 import './hero.scss'
 import sampleVideo from '../../assets/image/video-hero.mp4'
 import Curve from '../../assets/image/Curve-text.png'
+import BEEMOBILE from '../../assets/image/bee-mobile.png'
 
 const Header = () => {
 
@@ -93,6 +94,7 @@ const Header = () => {
         </div>
 
         <video
+        className='video-hero-pc'
         autoPlay
         loop
         muted
@@ -101,6 +103,8 @@ const Header = () => {
         <source src={sampleVideo} type="video/mp4" />
         Your browser does not support the video tag.
         </video>
+
+        <img className='bee-mobile' src={BEEMOBILE} alt="img" />
 
         <div className="wrap-hero">
             <h1 className='ml16'>Connect</h1>

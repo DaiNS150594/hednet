@@ -44,7 +44,9 @@ const Header = () => {
             <a href="#services">SERVIVES</a>
           </div>
           <button className="close-menu" onClick={closeMenu}>
-            <svg width="40" height="40" viewbox="0 0 40 40"><path d="M 10,10 L 30,30 M 30,10 L 10,30" stroke="white" stroke-width="4" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M10.0711 4.92896L11.4853 6.34317L6.8284 11L16.0003 11.0002V13.0002L6.82845 13L11.4853 17.6569L10.0711 19.0711L3 12L10.0711 4.92896ZM18.0002 19V4.99997H20.0002V19H18.0002Z" fill="white"/>
+            </svg>
           </button>
         </div>
 

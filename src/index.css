@@ -14,12 +14,73 @@
   font-style: normal;
 }
 
+html {
+  font-size: 54%;
+
+  @media (min-width: 31.25rem) and (max-width: 61.938rem) {
+    font-size: 54%;
+  }
+
+  @media (min-width: 62rem) and (max-width: 64rem) {
+    font-size: 55%;
+  }
+
+  @media (min-width: 65rem) and (max-width: 80rem) {
+    font-size: 58%;
+  }
+
+  @media (min-width: 81rem) and (max-width: 90rem) {
+    font-size: 60%;
+  }
+
+  @media (min-width: 91rem) {
+    font-size: 62.5%;
+  }
+}
+
+:root {
+  --primary-color: #FCB43A;
+}
+
 body {
   font-family: 'Tomorrow', sans-serif;
 }
 
 h5 {
   font-family: 'Hexaframe', sans-serif;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes loopY {
+  0% {
+    transform: translateY(-2rem);
+  }
+  50% {
+    transform: translateY(2rem);
+  }
+  100% {
+    transform: translateY(-2rem);
+  }
 }
 
 * {
