@@ -44,41 +44,31 @@ header {
 			gap: 10rem;
 			position: absolute;
 			left: 50%;
-			transform: translateX(-50%);
+			transform: translateX(calc(-50% + 10px));
+
 			a {
 				position: relative;
 				font-size: 2rem;
 				color: #fff;
 				text-transform: uppercase;
 				font-weight: 500;
-				&::after {
+				svg {
 					position: absolute;
 					display: block;
 					content: '';
-					top: -1.6rem;
+					top: -2.2rem;
 					left: 50%;
-					width: 1.6rem;
-					height: 1.6rem;
-					background: url('../../assets/image/Arrow_Yellow.svg') center no-repeat;
 					transform: translateX(-50%);
 					opacity: 0;
 					visibility: hidden;
 					transition: all 0.5s ease-in-out;
 				}
-				&:hover {
-					color: var(--primary-color);
-					font-weight: 700;
-					text-shadow: 0px 0px 8px rgba(255, 212, 0, 0.80);
-					&::after {
-						opacity: 1;
-						visibility: visible;
-					}
-				}
+				&:hover,
 				&:focus {
 					color: var(--primary-color);
 					font-weight: 700;
 					text-shadow: 0px 0px 8px rgba(255, 212, 0, 0.80);
-					&::after {
+					svg {
 						opacity: 1;
 						visibility: visible;
 					}
@@ -91,7 +81,7 @@ header {
 				color: var(--primary-color);
 				font-weight: 700;
 				text-shadow: 0px 0px 8px rgba(255, 212, 0, 0.80);
-				&::after {
+				svg {
 					opacity: 1;
 					visibility: visible;
 				}

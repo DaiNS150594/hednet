@@ -4,7 +4,8 @@ import anime from 'animejs';
 import './hero.scss'
 import sampleVideo from '../../assets/image/video-hero.mp4'
 import Curve from '../../assets/image/Curve-text.png'
-import BEEMOBILE from '../../assets/image/bee-mobile.png'
+import CurveHover from '../../assets/image/Curve-text-hover.png'
+import BEEMOBILE from '../../assets/image/Hednet_mobile.mp4'
 
 const Header = () => {
 
@@ -72,25 +73,11 @@ const Header = () => {
 
   return (
     <div className="hero">
-        {/* <div style={{ padding: '20px' }}>
-            <h1>Custom Function in React Example</h1>
-            <input
-            type="text"
-            placeholder="Enter text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            style={{ marginRight: '10px', padding: '5px' }}
-            />
-            <button onClick={handleTransform} style={{ padding: '5px 10px' }}>
-            Capitalize
-            </button>
-            <p>
-            <strong>Output:</strong> {output}
-            </p>
-        </div> */}
 
         <div className="cricle-rotate">
-            <img src={Curve} alt="img" />
+            <img class="c-n" src={Curve} alt="img" />
+            <img class="c-hover" src={CurveHover} alt="img" />
+            <a href="#link">explore now!</a>
         </div>
 
         <video
@@ -104,7 +91,16 @@ const Header = () => {
         Your browser does not support the video tag.
         </video>
 
-        <img className='bee-mobile' src={BEEMOBILE} alt="img" />
+        <video
+        className='video-hero-mobile'
+        autoPlay
+        loop
+        muted
+        playsInline
+        >
+        <source src={BEEMOBILE} type="video/mp4" />
+        Your browser does not support the video tag.
+        </video>
 
         <div className="wrap-hero">
             <h1 className='ml16'>Connect</h1>
@@ -113,8 +109,11 @@ const Header = () => {
             </div>
             <a className='btnHero hover-border-5' href="#learn-more">
                 Learn more
-                <svg xmlns="http://www.w3.org/2000/svg" width="47" height="20" viewBox="0 0 47 20" fill="none">
+                <svg class="arrow-n" xmlns="http://www.w3.org/2000/svg" width="47" height="20" viewBox="0 0 47 20" fill="none">
                     <path d="M39.399 9.16658L34.929 4.69657L36.1075 3.51807L42.5893 9.99992L36.1075 16.4817L34.929 15.3032L39.399 10.8332H4.25598V9.16658H39.399Z" fill="white"/>
+                </svg>
+                <svg class="arrow-hover" xmlns="http://www.w3.org/2000/svg" width="47" height="20" viewBox="0 0 47 20" fill="none">
+                    <path d="M39.399 9.16658L34.929 4.69657L36.1075 3.51807L42.5893 9.99992L36.1075 16.4817L34.929 15.3032L39.399 10.8332H4.25598V9.16658H39.399Z" fill="#FCB43A"/>
                 </svg>
             </a>
         </div>
