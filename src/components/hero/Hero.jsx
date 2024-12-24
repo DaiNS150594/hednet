@@ -9,12 +9,52 @@ import BEEMOBILE from '../../assets/image/Hednet_mobile.mp4';
 const Hero = () => {
   const words = ['Connect', 'Compute', 'Earn']; // Array of words to cycle through
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [hasShownInitialEffects, setHasShownInitialEffects] = useState(false);
 
   useEffect(() => {
+    // Select elements
     const textWrapper1 = document.querySelector('.ml16');
     const textWrapper2 = document.querySelector('.ml12');
     const button = document.querySelector('.btnHero');
 
+    // Animate ml12 and btnHero only the first time Connect appears
+    const animateTextWrapper2AndButton = () => {
+      if (textWrapper2) {
+        textWrapper2.innerHTML = textWrapper2.textContent.replace(
+          /\S/g,
+          "<span class='letter'>$&</span>"
+        );
+
+        anime.timeline().add({
+          targets: '.ml12 .letter',
+          translateX: [40, 0],
+          translateZ: 0,
+          opacity: [0, 1],
+          easing: 'easeOutExpo',
+          duration: 1200,
+          delay: (el, i) => 500 + 30 * i,
+        });
+      }
+
+      if (button) {
+        anime.timeline().add({
+          targets: '.btnHero',
+          opacity: [0, 1],
+          scale: [0.8, 1],
+          easing: 'easeOutExpo',
+          duration: 1200,
+          delay: 1000, // Button animation starts after ml12 animation
+          complete: () => {
+            button.classList.add('show-btn');
+            setTimeout(() => {
+              button.classList.add('show-border');
+            }, 500);
+          },
+        });
+      }
+    };
+
+    // Animate ml16 text
     const animateTextWrapper1 = () => {
       if (textWrapper1) {
         textWrapper1.innerHTML = words[currentWordIndex]
@@ -32,56 +72,22 @@ const Hero = () => {
       }
     };
 
-    const animateTextWrapper2 = () => {
-      if (textWrapper2) {
-        textWrapper2.innerHTML = textWrapper2.textContent.replace(
-          /\S/g,
-          "<span class='letter'>$&</span>"
-        );
+    // Determine whether to animate ml12 and btnHero
+    if (words[currentWordIndex] === 'Connect' && !hasShownInitialEffects) {
+      animateTextWrapper2AndButton();
+      setHasShownInitialEffects(true); // Ensure effects run only once
+    }
 
-        anime.timeline().add({
-          targets: '.ml12 .letter',
-          translateX: [40, 0],
-          translateZ: 0,
-          opacity: [0, 1],
-          easing: 'easeOutExpo',
-          duration: 1200,
-          delay: (el, i) => 500 + 30 * i,
-        });
-      }
-    };
-
-    const animateButton = () => {
-      anime.timeline().add({
-        targets: '.btnHero',
-        opacity: [0, 1],
-        scale: [0.8, 1],
-        easing: 'easeOutExpo',
-        duration: 1200,
-        delay: 1000, // Starts after the first animation
-        complete: () => {
-          if (button) {
-            button.classList.add('show-btn');
-            setTimeout(() => {
-              button.classList.add('show-border');
-            }, 500);
-          }
-        },
-      });
-    };
-
-    // Animate the text and button
+    // Always animate ml16 text
     animateTextWrapper1();
-    animateTextWrapper2();
-    animateButton();
 
-    // Update the word index and re-trigger animation every 4 seconds
+    // Set interval to update ml16 text
     const interval = setInterval(() => {
       setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
     }, 4000);
 
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, [currentWordIndex, words]);
+    return () => clearInterval(interval); // Cleanup interval on unmount
+  }, [currentWordIndex, words, hasShownInitialEffects]);
 
   return (
     <div className="hero">

@@ -28,7 +28,7 @@ const Header = () => {
         </div>
 
         <div className={`menu ${isMenuOpen ? 'open-menu' : 'close-menu'}`}>
-          <div className="menu-item">
+          <div className="menu-item menu-pricing">
             <a href="#pricing">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
               <g filter="url(#filter0_d_105_407)">
@@ -50,7 +50,7 @@ const Header = () => {
             </svg>
               PRICING</a>
           </div>
-          <div className="menu-item">
+          <div className="menu-item menu-docs">
             <a href="#docs">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
               <g filter="url(#filter0_d_105_407)">
@@ -94,7 +94,7 @@ const Header = () => {
             </svg>
               HOME</a>
           </div>
-          <div className="menu-item">
+          <div className="menu-item menu-blog">
             <a href="#blog">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
               <g filter="url(#filter0_d_105_407)">
@@ -116,7 +116,7 @@ const Header = () => {
             </svg>
               BLOG</a>
           </div>
-          <div className="menu-item">
+          <div className="menu-item menu-services">
             <a href="#services">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
               <g filter="url(#filter0_d_105_407)">
