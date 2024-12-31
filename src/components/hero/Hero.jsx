@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import anime from 'animejs';
 import './hero.scss';
-import sampleVideo from '../../assets/image/video-hero.mp4';
+import sampleVideo from '../../assets/image/video-hero-full.mp4';
 import Curve from '../../assets/image/Curve-text.png';
 import CurveHover from '../../assets/image/Curve-text-hover.png';
 import BEEMOBILE from '../../assets/image/Hednet_mobile.mp4';
