@@ -17,6 +17,15 @@ const Hero = () => {
     const textWrapper2 = document.querySelector('.ml12');
     const button = document.querySelector('.btnHero');
 
+    // Flag to ensure animations happen only once for each word
+    const wordAnimated = (word) => {
+      if (word === 'Connect' && !hasShownInitialEffects) {
+        setHasShownInitialEffects(true); // Ensure animations run only once for 'Connect'
+        return true;
+      }
+      return false;
+    };
+
     // Animate ml12 and btnHero only the first time Connect appears
     const animateTextWrapper2AndButton = () => {
       if (textWrapper2) {
@@ -72,19 +81,26 @@ const Hero = () => {
       }
     };
 
-    // Determine whether to animate ml12 and btnHero
-    if (words[currentWordIndex] === 'Connect' && !hasShownInitialEffects) {
-      animateTextWrapper2AndButton();
-      setHasShownInitialEffects(true); // Ensure effects run only once
-    }
+    // Delay animation by 5 seconds (5000 ms)
+    const delayAndAnimate = () => {
+      setTimeout(() => {
+        // Animate ml12 and button after 5 seconds
+        if (words[currentWordIndex] === 'Connect' && !hasShownInitialEffects) {
+          animateTextWrapper2AndButton();
+          setHasShownInitialEffects(true); // Ensure effects run only once
+        }
+        // Always animate ml16 text
+        animateTextWrapper1();
+      }, 5000); // 5-second delay before running the animation
+    };
 
-    // Always animate ml16 text
-    animateTextWrapper1();
+    // Determine when to trigger the animation
+    delayAndAnimate();
 
     // Set interval to update ml16 text
     const interval = setInterval(() => {
       setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 4000);
+    }, 4000); // Cycle every 4 seconds (adjustable)
 
     return () => clearInterval(interval); // Cleanup interval on unmount
   }, [currentWordIndex, words, hasShownInitialEffects]);
