@@ -213,14 +213,21 @@ $animation-duration: 3s; // Total duration of the loading process (1 second per 
     display: flex;
     gap: 4px;
     margin-top: 20px;
+	border-radius: 4px;
+	padding: 8px;
+	border: 1px solid #3D1C0B;
+	background: #220F05;
 
     .bar-item {
       width: 15px;
       height: 15px;
       background-color: $bar-original-color;
+	  border-radius: 2px;
+	  border: 1px solid $bar-original-color;
 
 	  &.active {
 		background-color: $bar-new-color;
+		border-color: $bar-new-color;
 	  }
     }
   }
